@@ -1,4 +1,4 @@
-package com.henry.flutter_mvvm_riverpod
+package ir.arush.smart
 
 import io.flutter.embedding.android.FlutterActivity
 
