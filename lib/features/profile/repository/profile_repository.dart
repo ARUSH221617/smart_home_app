@@ -1,6 +1,3 @@
-import 'dart:convert';
-
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,15 +19,6 @@ class ProfileRepository {
   const ProfileRepository();
 
   Future<Profile?> get() async {
-    // TODO: temporary get profile from local
-    final prefs = await SharedPreferences.getInstance();
-    final profileStr = prefs.getString(Constants.profileKey);
-    if (profileStr == null) return null;
-
-    final fakeProfile = Profile.fromJson(jsonDecode(profileStr));
-    return fakeProfile;
-    // END TODO
-
     final userId = supabase.auth.currentUser?.id;
     Profile profile = Profile();
     CustomerInfo? customerInfo;
@@ -82,11 +70,6 @@ class ProfileRepository {
   }
 
   Future<void> update(Profile profile) async {
-    // TODO: temporary save profile to local
-    final prefs = await SharedPreferences.getInstance();
-    prefs.setString(Constants.profileKey, jsonEncode(profile.toJson()));
-    return;
-
     final userId = profile.id;
     if (userId == null) return;
     try {

@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_annotation_target
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'profile.freezed.dart';
@@ -7,19 +9,16 @@ part 'profile.g.dart';
 @freezed
 abstract class Profile with _$Profile {
   const factory Profile({
-    @Default(null) String? id,
-    @Default(null) String? email,
-    @Default(null) String? name,
-    @Default(null) String? job,
-    @Default(null) String? avatar,
-    @Default(null) int? diamond,
-    @JsonKey(name: 'expiry_date_premium')
-    @Default(null)
-    DateTime? expiryDatePremium,
-    @JsonKey(name: 'is_lifetime_premium')
-    @Default(null)
-    bool? isLifetimePremium,
+    String? id,
+    String? email,
+    String? name,
+    String? job,
+    String? avatar,
+    int? diamond,
+    @JsonKey(name: 'expiry_date_premium') DateTime? expiryDatePremium,
+    @JsonKey(name: 'is_lifetime_premium') bool? isLifetimePremium,
   }) = _Profile;
 
-  factory Profile.fromJson(Map<String, Object?> json) => _$ProfileFromJson(json);
+  factory Profile.fromJson(Map<String, Object?> json) =>
+      _$ProfileFromJson(json);
 }

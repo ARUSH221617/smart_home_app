@@ -5,6 +5,7 @@ import 'package:hugeicons/hugeicons.dart';
 
 import '../../../generated/locale_keys.g.dart';
 import '/extensions/build_context_extension.dart';
+import '/features/common/ui/providers/app_theme_mode_provider.dart';
 import '/features/common/ui/widgets/common_header.dart';
 import 'widgets/appearance_item.dart';
 
@@ -20,38 +21,45 @@ class AppearancesScreen extends ConsumerWidget {
           CommonHeader(header: 'appearances'.tr()),
           Padding(
             padding: const EdgeInsets.all(16),
-            child: Column(
-              children: [
-                AppearanceItem(
-                  icon: HugeIcon(
-                    icon: HugeIcons.strokeRoundedSettings01,
-                    color: context.primaryTextColor,
-                    size: 20,
+            child: RadioGroup<ThemeMode>(
+              groupValue: ref.watch(appThemeModeProvider).value,
+              onChanged: (value) {
+                if (value == null) return;
+                ref.read(appThemeModeProvider.notifier).updateMode(value);
+              },
+              child: Column(
+                children: [
+                  AppearanceItem(
+                    icon: HugeIcon(
+                      icon: HugeIcons.strokeRoundedSettings01,
+                      color: context.primaryTextColor,
+                      size: 20,
+                    ),
+                    text: 'auto'.tr(),
+                    value: ThemeMode.system,
+                    isFirst: true,
                   ),
-                  text: 'auto'.tr(),
-                  value: ThemeMode.system,
-                  isFirst: true,
-                ),
-                AppearanceItem(
-                  icon: HugeIcon(
-                    icon: HugeIcons.strokeRoundedIdea,
-                    color: context.primaryTextColor,
-                    size: 20,
+                  AppearanceItem(
+                    icon: HugeIcon(
+                      icon: HugeIcons.strokeRoundedIdea,
+                      color: context.primaryTextColor,
+                      size: 20,
+                    ),
+                    text: LocaleKeys.lightMode.tr(),
+                    value: ThemeMode.light,
                   ),
-                  text: LocaleKeys.lightMode.tr(),
-                  value: ThemeMode.light,
-                ),
-                AppearanceItem(
-                  icon: HugeIcon(
-                    icon: HugeIcons.strokeRoundedMoon02,
-                    color: context.primaryTextColor,
-                    size: 20,
+                  AppearanceItem(
+                    icon: HugeIcon(
+                      icon: HugeIcons.strokeRoundedMoon02,
+                      color: context.primaryTextColor,
+                      size: 20,
+                    ),
+                    text: LocaleKeys.darkMode.tr(),
+                    value: ThemeMode.dark,
+                    isLast: true,
                   ),
-                  text: LocaleKeys.darkMode.tr(),
-                  value: ThemeMode.dark,
-                  isLast: true,
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],

@@ -1,5 +1,6 @@
+import 'dart:async';
+
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
 import 'package:hugeicons/hugeicons.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -16,17 +17,20 @@ part 'premium_view_model.g.dart';
 
 final List<Benefit> benefits = [
   Benefit(
-    icon: Icon(HugeIcons.strokeRoundedAlert01, color: AppColors.mono0),
+    icon:
+        HugeIcon(icon: HugeIcons.strokeRoundedAlert01, color: AppColors.mono0),
     title: LocaleKeys.benefitTitle1.tr(),
     description: LocaleKeys.benefitDescription1.tr(),
   ),
   Benefit(
-    icon: Icon(HugeIcons.strokeRoundedInfinity01, color: AppColors.mono0),
+    icon: HugeIcon(
+        icon: HugeIcons.strokeRoundedInfinity01, color: AppColors.mono0),
     title: LocaleKeys.benefitTitle2.tr(),
     description: LocaleKeys.benefitDescription2.tr(),
   ),
   Benefit(
-    icon: Icon(HugeIcons.strokeRoundedChartHistogram, color: AppColors.mono0),
+    icon: HugeIcon(
+        icon: HugeIcons.strokeRoundedChartHistogram, color: AppColors.mono0),
     title: LocaleKeys.benefitTitle3.tr(),
     description: LocaleKeys.benefitDescription3.tr(),
   ),
@@ -112,7 +116,8 @@ class PremiumViewModel extends _$PremiumViewModel {
     try {
       final currentState = state.value!;
       if (currentState.availablePackages == null) {
-        state = AsyncError(LocaleKeys.fetchOfferingsError.tr(), StackTrace.current);
+        state =
+            AsyncError(LocaleKeys.fetchOfferingsError.tr(), StackTrace.current);
         return;
       }
 
@@ -123,7 +128,8 @@ class PremiumViewModel extends _$PremiumViewModel {
       );
 
       if (revenueCatPackage == null) {
-        state = AsyncError(LocaleKeys.packageNotFoundError.tr(), StackTrace.current);
+        state = AsyncError(
+            LocaleKeys.packageNotFoundError.tr(), StackTrace.current);
         return;
       }
 
@@ -151,7 +157,8 @@ class PremiumViewModel extends _$PremiumViewModel {
         isRestoreSuccessfully: customerInfo.entitlements.active.isNotEmpty,
       ));
     } catch (error) {
-      state = AsyncError(LocaleKeys.restorePurchasesError.tr(), StackTrace.current);
+      state =
+          AsyncError(LocaleKeys.restorePurchasesError.tr(), StackTrace.current);
       rethrow;
     }
   }

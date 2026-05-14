@@ -18,7 +18,6 @@ import '../../../utils/global_loading.dart';
 import '../../../utils/validator.dart';
 import '../../common/ui/widgets/common_text_form_field.dart';
 import '../../common/ui/widgets/primary_button.dart';
-import '../../profile/ui/view_model/profile_view_model.dart';
 import 'view_model/authentication_view_model.dart';
 import 'widgets/horizontal_divider.dart';
 import 'widgets/sign_in_agreement.dart';
