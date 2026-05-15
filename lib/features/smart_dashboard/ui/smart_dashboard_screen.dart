@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../extensions/build_context_extension.dart';
-import '../../../extensions/profile_extension.dart';
 import '../../../generated/locale_keys.g.dart';
 import '../../../theme/app_colors.dart';
 import '../../../theme/app_theme.dart';
-import '../../profile/ui/view_model/profile_view_model.dart';
-import '../../profile/ui/widgets/upgrade_premium_button.dart';
+import '../../common/ui/providers/app_theme_mode_provider.dart';
 import 'providers/smart_home_power_provider.dart';
 
 class SmartDashboardScreen extends ConsumerWidget {
@@ -23,25 +21,37 @@ class SmartDashboardScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final profile =
-        ref.watch(profileViewModelProvider.select((it) => it.value?.profile));
+    final themeMode = ref.watch(appThemeModeProvider).value;
+    final isDarkMode = themeMode == ThemeMode.dark ||
+        (themeMode == ThemeMode.system && context.isDarkMode);
     final isSmartHomeOn = ref.watch(smartHomePowerProvider);
 
     return Scaffold(
       backgroundColor: context.secondaryBackgroundColor,
       appBar: AppBar(
+        titleSpacing: 16,
         title: Text(
           context.tr(LocaleKeys.smartDashboardTitle),
           style: AppTheme.title32,
         ),
-        actions: profile.isPremium
-            ? null
-            : [
-                Padding(
-                  padding: const EdgeInsets.only(right: 16),
-                  child: UpgradePremiumButton(isShowText: false),
-                ),
-              ],
+        actions: [
+          IconButton.filled(
+            style: IconButton.styleFrom(
+              backgroundColor: context.secondaryWidgetColor,
+              foregroundColor: context.primaryTextColor,
+            ),
+            onPressed: () {
+              final nextMode = isDarkMode ? ThemeMode.light : ThemeMode.dark;
+              ref.read(appThemeModeProvider.notifier).updateMode(nextMode);
+            },
+            icon: Icon(
+              isDarkMode
+                  ? Icons.light_mode_outlined
+                  : Icons.dark_mode_outlined,
+            ),
+          ),
+          const SizedBox(width: 16),
+        ],
         automaticallyImplyLeading: false,
         backgroundColor: context.secondaryBackgroundColor,
         foregroundColor: context.primaryTextColor,
@@ -80,23 +90,23 @@ class SmartDashboardScreen extends ConsumerWidget {
             children: [
               _DashboardCard(
                 title: context.tr(LocaleKeys.lights),
-                icon: Icons.lightbulb_outline,
+              icon: Icons.lightbulb_outline,
                 accentColor: AppColors.cempedak100,
                 isAvailable: true,
               ),
               _DashboardCard(
                 title: context.tr(LocaleKeys.tv),
-                icon: Icons.tv_outlined,
+              icon: Icons.tv_outlined,
                 accentColor: AppColors.blueberry100,
               ),
               _DashboardCard(
                 title: context.tr(LocaleKeys.cooler),
-                icon: Icons.ac_unit,
+              icon: Icons.ac_unit,
                 accentColor: AppColors.watermelon100,
               ),
               _DashboardCard(
                 title: context.tr(LocaleKeys.airConditioning),
-                icon: Icons.air,
+              icon: Icons.air,
                 accentColor: AppColors.rambutan100,
               ),
             ],

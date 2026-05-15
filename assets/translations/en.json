@@ -11,7 +11,7 @@
   "validatorInvalidEmailFormat": "Invalid email format",
   "validatorInvalidPhoneFormat": "Invalid phone number format",
   "validatorPasswordNotMatch": "Passwords do not match!",
-  "welcome": "Welcome to Flutter MVVM Riverpod!",
+  "welcome": "Welcome to Smart Home!",
   "welcomeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
   "alreadyHaveAccount": "Already have an account?",
   "or": "or",
@@ -114,5 +114,6 @@
   "comingSoon": "Coming soon",
   "soon": "Soon",
   "lightsOn": "Lights are on",
-  "lightsOff": "Lights are off"
+  "lightsOff": "Lights are off",
+  "support": "Support"
 }
