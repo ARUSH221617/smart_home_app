@@ -1,19 +1,20 @@
 class Constants {
   Constants._();
 
-  static const String tag = 'FMR';
+  static const String tag = 'SMART_APP';
 
-  static const String supabaseLoginCallback = 'com.areser.flutter_mvvm_riverpod://login-callback/';
+  static const String supabaseLoginCallback = 'com.arush.smart://login-callback/';
   static const String supabaseProfileTable = 'profile';
   static const String googleEmailScope = 'email';
   static const String googleUserInfoScope = 'https://www.googleapis.com/auth/userinfo.profile';
   static const String defaultName = 'Guest';
-  static const String termOfService = 'https://areser.net';
-  static const String privacyPolicy = 'https://areser.net';
-  static const String aboutUs = 'https://areser.net';
+  static const String termOfService = 'https://arush.ir';
+  static const String privacyPolicy = 'https://arush.ir';
+  static const String aboutUs = 'https://arush.ir';
   static const String appStore = 'https://apps.apple.com/developer/id1760383102';
   static const String playStore = 'https://play.google.com/store/apps/developer?id=Areser+JSC';
-  static const String reportProblem = 'mailto:areserjsc@gmail.com?subject=Report a Problem';
+  static const String reportProblem = 'mailto:arush221617@gmail.com?subject=Report a Problem';
+  static const String telegramSupport = 'https://ble.ir/arush221617';
   static const String premium = 'premium';
   static const String premiumMonthly = '\$rc_monthly';
   static const String premiumYearly = '\$rc_annual';
