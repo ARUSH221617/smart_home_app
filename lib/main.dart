@@ -56,7 +56,7 @@ void main() async {
   // MobileAds.instance.initialize();
 
   /// RevenueCat
-  // await initPlatformState();
+  await initPlatformState();
 
   /// Localization
   await EasyLocalization.ensureInitialized();
@@ -71,7 +71,7 @@ void main() async {
     ProviderScope(
       observers: [AppObserver()],
       child: EasyLocalization(
-        supportedLocales: const [Locale('en'), Locale('vi')],
+        supportedLocales: const [Locale('en'), Locale('fa')],
         path: 'assets/translations',
         fallbackLocale: const Locale('en'),
         useOnlyLangCode: true,

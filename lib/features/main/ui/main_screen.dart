@@ -1,20 +1,18 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hugeicons/hugeicons.dart';
 
 import '../../../extensions/build_context_extension.dart';
 import '../../../theme/app_colors.dart';
 import '../../../theme/app_theme.dart';
 import '../../common/ui/widgets/material_ink_well.dart';
-import '../../hero_list/ui/hero_list_screen.dart';
-import '../../hero_list/ui/view_model/hero_count_provider.dart';
-import '../../hero_list/ui/view_model/hero_list_view_model.dart';
+import '../../smart_dashboard/ui/providers/smart_home_power_provider.dart';
+import '../../smart_dashboard/ui/smart_dashboard_screen.dart';
 import '../../profile/ui/profile_screen.dart';
 import '../model/main_tab.dart';
 
 const List<Widget> _screens = [
-  HeroListScreen(),
+  SmartDashboardScreen(),
   ProfileScreen(),
 ];
 
@@ -30,7 +28,8 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final count = ref.watch(heroCountProvider);
+    final isSmartHomeOn = ref.watch(smartHomePowerProvider);
+
     return Scaffold(
       body: Stack(
         children: [
@@ -62,29 +61,24 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                 const SizedBox(width: 8),
                 Container(
                   decoration: BoxDecoration(
-                    color: context.secondaryWidgetColor,
+                    color: isSmartHomeOn
+                        ? AppColors.watermelon100
+                        : context.secondaryWidgetColor,
                     borderRadius: const BorderRadius.all(Radius.circular(48)),
                   ),
                   child: MaterialInkWell(
                     radius: 48,
-                    onTap: () async {
-                      final randomHero =
-                          sampleHeroes[count % sampleHeroes.length];
-                      await ref
-                          .read(heroListViewModelProvider.notifier)
-                          .addHero(
-                            name: randomHero.name,
-                            description: randomHero.description,
-                            imageUrl: randomHero.imageUrl,
-                            power: randomHero.power,
-                          );
-                      ref.read(heroCountProvider.notifier).increment();
+                    onTap: () {
+                      ref.read(smartHomePowerProvider.notifier).state =
+                          !isSmartHomeOn;
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(18),
-                      child: HugeIcon(
-                        icon: HugeIcons.strokeRoundedAdd01,
-                        color: AppColors.mono100,
+                      child: Icon(
+                        Icons.power_settings_new,
+                        color: isSmartHomeOn
+                            ? AppColors.mono0
+                            : AppColors.mono100,
                         size: 32,
                       ),
                     ),

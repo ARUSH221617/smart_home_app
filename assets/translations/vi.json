@@ -11,7 +11,6 @@
   "validatorInvalidEmailFormat": "Email không hợp lệ",
   "validatorInvalidPhoneFormat": "Số điện thoại không hợp lệ",
   "validatorPasswordNotMatch": "Mật khẩu không trùng khớp!",
-
   "welcome": "Xin chào đến với Flutter MVVM Riverpod!",
   "welcomeDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
   "alreadyHaveAccount": "Đã có tài khoản?",
@@ -28,21 +27,17 @@
   "signInAgreementMiddle": "\nvà ",
   "signInAgreementSuffix": " của chúng tôi",
   "continueAsGuest": "Tiếp tục với tư cách khách",
-
   "otpVerification": "Xác thực OTP",
   "otpEnterTitle": "Chúng tôi đã gửi mã OTP gồm 6 chữ số tới email của bạn",
   "otpEnterDescription": "Bạn có thể nhập mã OTP ở đây hoặc nhấn vào nút trong email.",
   "didNotReceiveOtp": "Không nhận được mã OTP?",
   "tryAgainAfter": "Bạn có thể gửi một link đăng nhập khác sau {} giây.",
   "resendOtp": "Gửi lại OTP",
-
-  "menuHero": "Hero",
+  "menuHero": "Bảng điều khiển thông minh",
   "menuSetting": "Cài đặt",
-
   "goodMorning": "Chào buổi sáng",
   "goodAfternoon": "Chào buổi chiều",
   "goodEvening": "Chào buổi tối",
-
   "general": "Tổng quan",
   "preferences": "Tham chiếu",
   "dangerousZone": "Khác",
@@ -67,7 +62,6 @@
   "deleteAccount": "Xoá tài khoản",
   "deleteAccountTitle": "Xác nhận xoá tài khoản",
   "deleteAccountMessage": "Bạn có chắc chắn muốn xoá tài khoản?",
-
   "premium": "Premium",
   "premiumLifetime": "Premium Vĩnh Viễn",
   "until": "đến",
@@ -107,5 +101,18 @@
   "purchaseError": "Mua hàng thất bại",
   "restorePurchasesSuccess": "Đã khôi phục thành công các gói đã mua",
   "noActivePurchases": "Không tìm thấy gói đã mua",
-  "restorePurchasesError": "Không thể khôi phục các gói đã mua"
+  "restorePurchasesError": "Không thể khôi phục các gói đã mua",
+  "smartDashboardTitle": "Bảng điều khiển thông minh",
+  "smartDashboardDescription": "Điều khiển thiết bị trong nhà từ một nơi.",
+  "smartHomeOn": "Nhà thông minh đang bật",
+  "smartHomeOff": "Nhà thông minh đang tắt",
+  "lights": "Đèn",
+  "tv": "TV",
+  "cooler": "Máy làm mát",
+  "airConditioning": "Điều hòa",
+  "availableNow": "Đang khả dụng",
+  "comingSoon": "Sắp ra mắt",
+  "soon": "Sớm",
+  "lightsOn": "Đèn đang bật",
+  "lightsOff": "Đèn đang tắt"
 }
