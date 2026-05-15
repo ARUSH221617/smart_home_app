@@ -10,7 +10,6 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../constants/constants.dart';
 import '../../../extensions/build_context_extension.dart';
-import '../../../extensions/profile_extension.dart';
 import '../../../generated/locale_keys.g.dart';
 import '../../../routing/routes.dart';
 import '../../../theme/app_colors.dart';
@@ -21,9 +20,8 @@ import '../../common/ui/widgets/common_dialog.dart';
 import '../model/profile.dart';
 import 'view_model/profile_view_model.dart';
 import 'widgets/avatar.dart';
-import 'widgets/premium_info_button.dart';
 import 'widgets/profile_item.dart';
-import 'widgets/upgrade_premium_button.dart';
+import 'widgets/support_button.dart';
 
 class ProfileScreen extends ConsumerStatefulWidget {
   const ProfileScreen({super.key});
@@ -93,11 +91,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                 ),
                 Transform.translate(
                   offset: Offset(0, -32),
-                  child: profile.isPremium
-                      ? PremiumInfoButton(
-                          expiryDate: profile?.expiryDatePremium,
-                        )
-                      : UpgradePremiumButton(),
+                  child: const SupportButton(),
                 ),
               ],
             ),
