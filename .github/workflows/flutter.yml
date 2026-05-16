@@ -117,7 +117,7 @@ jobs:
       - name: Install CocoaPods
         run: |
           cd ios
-          pod update PurchasesHybridCommon
+          pod update Firebase/Crashlytics PurchasesHybridCommon
           pod install --repo-update
 
       - name: Build iOS
