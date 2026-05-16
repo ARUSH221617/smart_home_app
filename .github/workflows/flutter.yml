@@ -69,11 +69,25 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Patch Gradle files – remove myket.ir mirror and fix Gradle distribution URL
+      - name: Setup Gradle wrapper
         run: |
-          sed -i 's|distributionUrl=.*|distributionUrl=https\\://services.gradle.org/distributions/gradle-8.11.1-bin.zip|' gradle/wrapper/gradle-wrapper.properties
-          sed -i '/maven { url "https:\/\/maven.myket.ir" }/d' android/build.gradle
-          sed -i '/maven { url "https:\/\/maven.myket.ir" }/d' android/settings.gradle
+          mkdir -p gradle/wrapper
+          if [ ! -f gradle/wrapper/gradle-wrapper.properties ]; then
+            cat > gradle/wrapper/gradle-wrapper.properties << 'EOF'
+            distributionBase=GRADLE_USER_HOME
+            distributionPath=wrapper/dists
+            distributionUrl=https\://services.gradle.org/distributions/gradle-8.11.1-bin.zip
+            zipStoreBase=GRADLE_USER_HOME
+            zipStorePath=wrapper/dists
+            EOF
+          else
+            sed -i 's|distributionUrl=.*|distributionUrl=https\\://services.gradle.org/distributions/gradle-8.11.1-bin.zip|' gradle/wrapper/gradle-wrapper.properties
+          fi
+
+      - name: Patch Gradle files – remove myket.ir mirror
+        run: |
+          [ -f android/build.gradle ] && sed -i '/maven { url "https:\/\/maven.myket.ir" }/d' android/build.gradle || true
+          [ -f android/settings.gradle ] && sed -i '/maven { url "https:\/\/maven.myket.ir" }/d' android/settings.gradle || true
 
       - name: Setup Java
         uses: actions/setup-java@v4
