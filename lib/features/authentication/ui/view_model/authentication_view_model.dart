@@ -56,11 +56,12 @@ class AuthenticationViewModel extends _$AuthenticationViewModel {
     handleResult(result);
   }
 
-  Future<void> signInWithApple() async {
-    state = const AsyncValue.loading();
-    final result = await AsyncValue.guard(_repository.signInWithApple);
-    handleResult(result);
-  }
+// TODO: implement APPLE sign in later
+  // Future<void> signInWithApple() async {
+  //   state = const AsyncValue.loading();
+  //   final result = await AsyncValue.guard(_repository.signInWithApple);
+  //   handleResult(result);
+  // }
 
   Future<void> signOut() async {
     state = const AsyncValue.loading();
@@ -86,7 +87,8 @@ class AuthenticationViewModel extends _$AuthenticationViewModel {
     debugPrint(
         '${Constants.tag} [AuthenticationViewModel.handleResult] authResponse: ${authResponse?.user?.toJson()}');
     if (authResponse == null) {
-      state = AsyncError(LocaleKeys.unexpectedErrorOccurred.tr(), StackTrace.current);
+      state = AsyncError(
+          LocaleKeys.unexpectedErrorOccurred.tr(), StackTrace.current);
       return;
     }
 
@@ -119,10 +121,10 @@ class AuthenticationViewModel extends _$AuthenticationViewModel {
       avatar = metaData['avatar_url'];
     }
     ref.read(profileViewModelProvider.notifier).updateProfile(
-      email: user.email,
-      name: name,
-      avatar: avatar,
-    );
+          email: user.email,
+          name: name,
+          avatar: avatar,
+        );
   }
 
   Future<bool> isLogin() async {

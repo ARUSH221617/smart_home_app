@@ -6,7 +6,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+// import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '/constants/constants.dart';
@@ -98,36 +98,37 @@ class AuthenticationRepository {
     }
   }
 
-  Future<AuthResponse> signInWithApple() async {
-    try {
-      final rawNonce = supabase.auth.generateRawNonce();
-      final hashedNonce = sha256.convert(utf8.encode(rawNonce)).toString();
+// TODO: implement APPLE sign in later
+  // Future<AuthResponse> signInWithApple() async {
+  //   try {
+  //     final rawNonce = supabase.auth.generateRawNonce();
+  //     final hashedNonce = sha256.convert(utf8.encode(rawNonce)).toString();
 
-      final credential = await SignInWithApple.getAppleIDCredential(
-        scopes: [
-          AppleIDAuthorizationScopes.email,
-          AppleIDAuthorizationScopes.fullName,
-        ],
-        nonce: hashedNonce,
-      );
+  //     final credential = await SignInWithApple.getAppleIDCredential(
+  //       scopes: [
+  //         AppleIDAuthorizationScopes.email,
+  //         AppleIDAuthorizationScopes.fullName,
+  //       ],
+  //       nonce: hashedNonce,
+  //     );
 
-      final idToken = credential.identityToken;
-      if (idToken == null) {
-        throw Exception(LocaleKeys.idTokenNotFound.tr());
-      }
+  //     final idToken = credential.identityToken;
+  //     if (idToken == null) {
+  //       throw Exception(LocaleKeys.idTokenNotFound.tr());
+  //     }
 
-      final result = await supabase.auth.signInWithIdToken(
-        provider: OAuthProvider.apple,
-        idToken: idToken,
-        nonce: rawNonce,
-      );
-      return result;
-    } on AuthException catch (error) {
-      throw Exception(error.message);
-    } catch (error) {
-      throw Exception(LocaleKeys.unexpectedErrorOccurred.tr());
-    }
-  }
+  //     final result = await supabase.auth.signInWithIdToken(
+  //       provider: OAuthProvider.apple,
+  //       idToken: idToken,
+  //       nonce: rawNonce,
+  //     );
+  //     return result;
+  //   } on AuthException catch (error) {
+  //     throw Exception(error.message);
+  //   } catch (error) {
+  //     throw Exception(LocaleKeys.unexpectedErrorOccurred.tr());
+  //   }
+  // }
 
   Future<void> signOut() async {
     try {
