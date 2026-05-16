@@ -117,6 +117,7 @@ jobs:
       - name: Install CocoaPods
         run: |
           cd ios
+          rm -rf Podfile.lock
           pod update Firebase/Crashlytics PurchasesHybridCommon
           pod install --repo-update
 
