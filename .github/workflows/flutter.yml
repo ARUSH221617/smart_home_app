@@ -176,9 +176,9 @@ jobs:
           echo Compression=lzma >> installer.iss
           echo SolidCompression=yes >> installer.iss
           echo [Files] >> installer.iss
-          echo 'Source: "build\\windows\\x64\\runner\\Release\\*"; DestDir: "{app}"; Flags: recursesubdirs' >> installer.iss
+          Add-Content installer.iss 'Source: "build\\windows\\x64\\runner\\Release\\*"; DestDir: "{app}"; Flags: recursesubdirs'
           echo [Icons] >> installer.iss
-          echo 'Name: "{group}\\MyApp"; Filename: "{app}\\myapp.exe"' >> installer.iss
+          Add-Content installer.iss 'Name: "{group}\\MyApp"; Filename: "{app}\\myapp.exe"'
 
       - name: Build Installer
         run: iscc installer.iss
