@@ -76,9 +76,8 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                       padding: const EdgeInsets.all(18),
                       child: Icon(
                         Icons.power_settings_new,
-                        color: isSmartHomeOn
-                            ? AppColors.mono0
-                            : AppColors.mono100,
+                        color:
+                            isSmartHomeOn ? AppColors.mono0 : AppColors.mono100,
                         size: 32,
                       ),
                     ),

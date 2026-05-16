@@ -140,13 +140,13 @@ class _PremiumScreenState extends ConsumerState<PremiumScreen> {
                         children: products
                             .mapIndexed(
                               (index, product) => ProductItem(
-                            product: product,
-                            isSelected: selectedIndex == index,
-                            onTap: () => ref
-                                .read(premiumViewModelProvider.notifier)
-                                .selectProduct(index),
-                          ),
-                        )
+                                product: product,
+                                isSelected: selectedIndex == index,
+                                onTap: () => ref
+                                    .read(premiumViewModelProvider.notifier)
+                                    .selectProduct(index),
+                              ),
+                            )
                             .toList(),
                       ),
                       const SizedBox(height: 8),
@@ -174,10 +174,10 @@ class _PremiumScreenState extends ConsumerState<PremiumScreen> {
                           spacing: 16,
                           children: benefits
                               .map((benefit) => BenefitItem(
-                            icon: benefit.icon,
-                            title: benefit.title,
-                            description: benefit.description,
-                          ))
+                                    icon: benefit.icon,
+                                    title: benefit.title,
+                                    description: benefit.description,
+                                  ))
                               .toList(),
                         ),
                       ),

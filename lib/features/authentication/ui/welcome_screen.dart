@@ -79,7 +79,7 @@ class _WelcomeScreenState extends ConsumerState<WelcomeScreen> {
       if (mounted) {
         context.go(
           Routes.premium,
-          extra: { Constants.isGoToMain: true },
+          extra: {Constants.isGoToMain: true},
         );
       }
       return;

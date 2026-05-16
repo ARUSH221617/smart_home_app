@@ -128,8 +128,8 @@ class _AccountInfoScreenState extends ConsumerState<AccountInfoScreen> {
                   }
                 } catch (error) {
                   if (context.mounted) {
-                    context
-                        .showErrorSnackBar(LocaleKeys.unexpectedErrorOccurred.tr());
+                    context.showErrorSnackBar(
+                        LocaleKeys.unexpectedErrorOccurred.tr());
                   }
                 } finally {
                   Global.hideLoading();

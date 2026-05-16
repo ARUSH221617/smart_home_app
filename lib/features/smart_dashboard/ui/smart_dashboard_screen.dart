@@ -45,9 +45,7 @@ class SmartDashboardScreen extends ConsumerWidget {
               ref.read(appThemeModeProvider.notifier).updateMode(nextMode);
             },
             icon: Icon(
-              isDarkMode
-                  ? Icons.light_mode_outlined
-                  : Icons.dark_mode_outlined,
+              isDarkMode ? Icons.light_mode_outlined : Icons.dark_mode_outlined,
             ),
           ),
           const SizedBox(width: 16),
@@ -90,23 +88,23 @@ class SmartDashboardScreen extends ConsumerWidget {
             children: [
               _DashboardCard(
                 title: context.tr(LocaleKeys.lights),
-              icon: Icons.lightbulb_outline,
+                icon: Icons.lightbulb_outline,
                 accentColor: AppColors.cempedak100,
                 isAvailable: true,
               ),
               _DashboardCard(
                 title: context.tr(LocaleKeys.tv),
-              icon: Icons.tv_outlined,
+                icon: Icons.tv_outlined,
                 accentColor: AppColors.blueberry100,
               ),
               _DashboardCard(
                 title: context.tr(LocaleKeys.cooler),
-              icon: Icons.ac_unit,
+                icon: Icons.ac_unit,
                 accentColor: AppColors.watermelon100,
               ),
               _DashboardCard(
                 title: context.tr(LocaleKeys.airConditioning),
-              icon: Icons.air,
+                icon: Icons.air,
                 accentColor: AppColors.rambutan100,
               ),
             ],
@@ -149,7 +147,7 @@ class _DashboardCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(28),
           border: Border.all(
             color: isAvailable
-                ? accentColor.withOpacity(0.35)
+                ? accentColor.withValues(alpha: 0.35)
                 : context.dividerColor,
           ),
           boxShadow: [
@@ -170,7 +168,7 @@ class _DashboardCard extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: accentColor.withOpacity(0.14),
+                      color: accentColor.withValues(alpha: 0.14),
                       borderRadius: BorderRadius.circular(18),
                     ),
                     child: Icon(icon, color: accentColor, size: 34),
@@ -244,7 +242,7 @@ class LightsScreen extends ConsumerWidget {
               padding: const EdgeInsets.all(28),
               decoration: BoxDecoration(
                 color: isLightOn
-                    ? AppColors.cempedak100.withOpacity(0.22)
+                    ? AppColors.cempedak100.withValues(alpha: 0.22)
                     : context.secondaryWidgetColor,
                 shape: BoxShape.circle,
               ),
@@ -264,7 +262,7 @@ class LightsScreen extends ConsumerWidget {
             const SizedBox(height: 16),
             Switch.adaptive(
               value: isLightOn,
-              activeColor: AppColors.cempedak100,
+              activeThumbColor: AppColors.cempedak100,
               onChanged: (value) {
                 ref.read(smartHomePowerProvider.notifier).state = value;
               },
