@@ -169,16 +169,16 @@ jobs:
           echo [Setup] > installer.iss
           echo AppName=MyApp >> installer.iss
           echo AppVersion=1.0 >> installer.iss
-          echo DefaultDirName={pf}\MyApp >> installer.iss
+          echo DefaultDirName={pf}\\MyApp >> installer.iss
           echo DefaultGroupName=MyApp >> installer.iss
           echo OutputDir=dist >> installer.iss
           echo OutputBaseFilename=myapp-installer >> installer.iss
           echo Compression=lzma >> installer.iss
           echo SolidCompression=yes >> installer.iss
           echo [Files] >> installer.iss
-          echo Source: "build\windows\x64\runner\Release\*"; DestDir: "{app}"; Flags: recursesubdirs >> installer.iss
+          echo 'Source: "build\\windows\\x64\\runner\\Release\\*"; DestDir: "{app}"; Flags: recursesubdirs' >> installer.iss
           echo [Icons] >> installer.iss
-          echo Name: "{group}\MyApp"; Filename: "{app}\myapp.exe" >> installer.iss
+          echo 'Name: "{group}\\MyApp"; Filename: "{app}\\myapp.exe"' >> installer.iss
 
       - name: Build Installer
         run: iscc installer.iss
