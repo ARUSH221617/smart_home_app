@@ -1,4 +1,4 @@
-# Flutter MVVM Riverpod Starter
+# Flutter Smart Home App
 
 A lightweight Flutter starter template implementing **MVVM architecture** with **Riverpod state management** and **Supabase backend**. Perfect for indie hackers and solo developers looking to quickly bootstrap their projects.
 
@@ -73,7 +73,7 @@ lib/
 
 1. Clone this repository
    ```bash
-   git clone https://github.com/namanh11611/flutter_mvvm_riverpod.git
+   git clone https://github.com/ARUSH221617/smart_home_app.git
    ```
 
 2. Install dependencies
@@ -105,11 +105,11 @@ lib/
    flutter run
    ```
 
-## 📱 Screenshots
+<!-- ## 📱 Screenshots
 
 | Light Hero                                | Light Profile                                   | Dark Hero                               | Dark Profile                                  |
 |-------------------------------------------|-------------------------------------------------|-----------------------------------------|-----------------------------------------------|
-| ![Hero Light](/screenshots/HeroLight.png) | ![Profile Light](/screenshots/ProfileLight.png) | ![Hero Dark](/screenshots/HeroDark.png) | ![Profile Dark](/screenshots/ProfileDark.png) |
+| ![Hero Light](/screenshots/HeroLight.png) | ![Profile Light](/screenshots/ProfileLight.png) | ![Hero Dark](/screenshots/HeroDark.png) | ![Profile Dark](/screenshots/ProfileDark.png) | -->
 
 ## 🤝 Contributing
 
@@ -121,4 +121,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## ⭐ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=namanh11611/flutter_mvvm_riverpod&type=date&legend=top-left)](https://www.star-history.com/#namanh11611/flutter_mvvm_riverpod&type=date&legend=top-left)
+[![Star History Chart](https://api.star-history.com/svg?repos=ARUSH221617/smart_home_app&type=date&legend=top-left)](https://www.star-history.com/#ARUSH221617/smart_home_app&type=date&legend=top-left)

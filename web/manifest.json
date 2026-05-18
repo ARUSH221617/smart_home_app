@@ -1,6 +1,6 @@
 {
-    "name": "flutter_mvvm_riverpod",
-    "short_name": "flutter_mvvm_riverpod",
+    "name": "smart_home_app",
+    "short_name": "smart_home_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

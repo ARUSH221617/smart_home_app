@@ -270,7 +270,7 @@ jobs:
           Source: "build\windows\x64\runner\Release\*"; DestDir: "{app}"; Flags: recursesubdirs
 
           [Icons]
-          Name: "{group}\MyApp"; Filename: "{app}\flutter_mvvm_riverpod.exe"
+          Name: "{group}\MyApp"; Filename: "{app}\smart_home_app.exe"
           "@
 
           [System.IO.File]::WriteAllText("$pwd\installer.iss", $issContent, [System.Text.Encoding]::ASCII)

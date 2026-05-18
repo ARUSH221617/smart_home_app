@@ -11,18 +11,18 @@
             "program": "lib/main.dart"
         },
         {
-            "name": "flutter_mvvm_riverpod",
+            "name": "smart_home_app",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "flutter_mvvm_riverpod (profile mode)",
+            "name": "smart_home_app (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "flutter_mvvm_riverpod (release mode)",
+            "name": "smart_home_app (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

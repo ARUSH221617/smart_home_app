@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mvvm_riverpod/generated/locale_keys.g.dart';
+import 'package:smart_home_app/generated/locale_keys.g.dart';
 import 'package:ming_cute_icons/ming_cute_icons.dart';
 
 enum MainTab {
