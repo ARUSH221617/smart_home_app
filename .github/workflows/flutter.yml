@@ -167,23 +167,24 @@ jobs:
         shell: powershell
         run: |
           $issContent = @"
-      [Setup]
-      AppName=MyApp
-      AppVersion=1.0
-      DefaultDirName={pf}\MyApp
-      DefaultGroupName=MyApp
-      OutputDir=dist
-      OutputBaseFilename=myapp-installer
-      Compression=lzma
-      SolidCompression=yes
+            [Setup]
+            AppName=MyApp
+            AppVersion=1.0
+            DefaultDirName={pf}\MyApp
+            DefaultGroupName=MyApp
+            OutputDir=dist
+            OutputBaseFilename=myapp-installer
+            Compression=lzma
+            SolidCompression=yes
 
-      [Files]
-      Source: "build\windows\x64\runner\Release\*"; DestDir: "{app}"; Flags: recursesubdirs
+            [Files]
+            Source: "build\windows\x64\runner\Release\*"; DestDir: "{app}"; Flags: recursesubdirs
 
-      [Icons]
-      Name: "{group}\MyApp"; Filename: "{app}\flutter_mvvm_riverpod.exe"
-      "@
-          [System.IO.File]::WriteAllText("$pwd\installer.iss", $issContent, [System.Text.Encoding]::ASCII)
+            [Icons]
+            Name: "{group}\MyApp"; Filename: "{app}\flutter_mvvm_riverpod.exe"
+            "@
+                [System.IO.File]::WriteAllText("$pwd\installer.iss", $issContent, [System.Text.Encoding]::ASCII)
+
       - name: Build Installer
         run: iscc installer.iss
 
