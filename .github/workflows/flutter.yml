@@ -166,20 +166,24 @@ jobs:
       - name: Create installer script
         shell: powershell
         run: |
-          echo [Setup] > installer.iss
-          echo AppName=MyApp >> installer.iss
-          echo AppVersion=1.0 >> installer.iss
-          echo DefaultDirName={pf}\\MyApp >> installer.iss
-          echo DefaultGroupName=MyApp >> installer.iss
-          echo OutputDir=dist >> installer.iss
-          echo OutputBaseFilename=myapp-installer >> installer.iss
-          echo Compression=lzma >> installer.iss
-          echo SolidCompression=yes >> installer.iss
-          echo [Files] >> installer.iss
-          Add-Content installer.iss 'Source: "build\\windows\\x64\\runner\\Release\\*"; DestDir: "{app}"; Flags: recursesubdirs'
-          echo [Icons] >> installer.iss
-          Add-Content installer.iss 'Name: "{group}\\MyApp"; Filename: "{app}\\myapp.exe"'
+          $issContent = @"
+      [Setup]
+      AppName=MyApp
+      AppVersion=1.0
+      DefaultDirName={pf}\MyApp
+      DefaultGroupName=MyApp
+      OutputDir=dist
+      OutputBaseFilename=myapp-installer
+      Compression=lzma
+      SolidCompression=yes
 
+      [Files]
+      Source: "build\windows\x64\runner\Release\*"; DestDir: "{app}"; Flags: recursesubdirs
+
+      [Icons]
+      Name: "{group}\MyApp"; Filename: "{app}\flutter_mvvm_riverpod.exe"
+      "@
+          [System.IO.File]::WriteAllText("$pwd\installer.iss", $issContent, [System.Text.Encoding]::ASCII)
       - name: Build Installer
         run: iscc installer.iss
 
