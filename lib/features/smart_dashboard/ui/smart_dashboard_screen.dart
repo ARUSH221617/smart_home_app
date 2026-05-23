@@ -29,7 +29,11 @@ class SmartDashboardScreen extends ConsumerWidget {
     return Scaffold(
       backgroundColor: context.secondaryBackgroundColor,
       appBar: AppBar(
-        titleSpacing: 16,
+        titleSpacing: 0,
+        leadingWidth: 55,
+        leading: Container(
+          margin: EdgeInsets.only(left: 16, right: 8),
+          child: Image.asset('assets/images/logo.png', width: 32, height: 32),),
         title: Text(
           context.tr(LocaleKeys.smartDashboardTitle),
           style: AppTheme.title32,
