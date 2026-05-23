@@ -16,7 +16,7 @@ class SupportButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: context.primaryTextColor,
+        color: AppColors.premiumBackground,
         borderRadius: BorderRadius.circular(24),
       ),
       child: MaterialInkWell(
