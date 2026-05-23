@@ -101,6 +101,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
         });
       },
       child: Container(
+        width: 125,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
         decoration: BoxDecoration(
           color: isSelected ? context.secondaryBackgroundColor : null,
