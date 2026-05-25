@@ -182,6 +182,7 @@ class _DashboardCard extends StatelessWidget {
                     title,
                     style: AppTheme.title18.copyWith(
                       color: context.primaryTextColor,
+                      overflow: TextOverflow.ellipsis
                     ),
                   ),
                   const SizedBox(height: 6),
