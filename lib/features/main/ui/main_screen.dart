@@ -49,6 +49,14 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                     decoration: BoxDecoration(
                       color: context.secondaryWidgetColor,
                       borderRadius: const BorderRadius.all(Radius.circular(48)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black
+                              .withValues(alpha: 0.1), // subtle transparency
+                          blurRadius: 8, // softness of shadow
+                          offset: Offset(0, 4), // horizontal (x), vertical (y)
+                        ),
+                      ],
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
@@ -66,6 +74,14 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                 const SizedBox(width: 8),
                 Container(
                   decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black
+                            .withValues(alpha: 0.1), // subtle transparency
+                        blurRadius: 8, // softness of shadow
+                        offset: Offset(0, 4), // horizontal (x), vertical (y)
+                      ),
+                    ],
                     color: isSmartHomeOn
                         ? AppColors.watermelon100
                         : context.secondaryWidgetColor,
