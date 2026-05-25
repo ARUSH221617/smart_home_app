@@ -50,11 +50,16 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                       color: context.secondaryWidgetColor,
                       borderRadius: const BorderRadius.all(Radius.circular(48)),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: MainTab.values
-                          .map((tab) => _buildNavItem(tab))
-                          .toList(),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 4),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        spacing: 8,
+                        children: MainTab.values
+                            .map((tab) => _buildNavItem(tab))
+                            .toList(),
+                      ),
                     ),
                   ),
                 ),
@@ -93,34 +98,35 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
   Widget _buildNavItem(MainTab tab) {
     final isSelected = _currentTabIndex == tab.index;
-    return MaterialInkWell(
-      radius: 24,
-      onTap: () {
-        setState(() {
-          _currentTabIndex = tab.index;
-        });
-      },
-      child: Container(
-        width: 125,
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-        decoration: BoxDecoration(
-          color: isSelected ? context.secondaryBackgroundColor : null,
-          borderRadius: const BorderRadius.all(Radius.circular(24)),
-        ),
-        child: Column(
-          children: [
-            Icon(
-              tab.iconData,
-              color: isSelected ? AppColors.blueberry100 : null,
-            ),
-            const SizedBox(height: 4),
-            Text(
-              context.tr(tab.labelKey),
-              style: AppTheme.body12.copyWith(
+    return Expanded(
+      child: MaterialInkWell(
+        radius: 24,
+        onTap: () {
+          setState(() {
+            _currentTabIndex = tab.index;
+          });
+        },
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+          decoration: BoxDecoration(
+            color: isSelected ? context.secondaryBackgroundColor : null,
+            borderRadius: const BorderRadius.all(Radius.circular(24)),
+          ),
+          child: Column(
+            children: [
+              Icon(
+                tab.iconData,
                 color: isSelected ? AppColors.blueberry100 : null,
               ),
-            ),
-          ],
+              const SizedBox(height: 4),
+              Text(
+                context.tr(tab.labelKey),
+                style: AppTheme.body12.copyWith(
+                  color: isSelected ? AppColors.blueberry100 : null,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
