@@ -33,8 +33,7 @@ class SmartDashboardScreen extends ConsumerWidget {
         leadingWidth: 55,
         leading: Container(
           margin: EdgeInsets.only(left: 16, right: 8),
-          child: Image.asset('assets/images/logo.png', width: 32, height: 32),
-        ),
+          child: Image.asset('assets/images/logo.png', width: 32, height: 32),),
         title: Text(
           context.tr(LocaleKeys.smartDashboardTitle),
           style: AppTheme.title32,
@@ -166,7 +165,7 @@ class _DashboardCard extends StatelessWidget {
         child: Stack(
           children: [
             Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(18),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -182,8 +181,9 @@ class _DashboardCard extends StatelessWidget {
                   Text(
                     title,
                     style: AppTheme.title18.copyWith(
-                        color: context.primaryTextColor,
-                        overflow: TextOverflow.ellipsis),
+                      color: context.primaryTextColor,
+                      overflow: TextOverflow.ellipsis
+                    ),
                   ),
                   const SizedBox(height: 6),
                   Text(
@@ -193,8 +193,8 @@ class _DashboardCard extends StatelessWidget {
                           : LocaleKeys.comingSoon,
                     ),
                     style: AppTheme.body12.copyWith(
-                        color: context.secondaryTextColor,
-                        overflow: TextOverflow.ellipsis),
+                      color: context.secondaryTextColor,
+                    ),
                   ),
                 ],
               ),

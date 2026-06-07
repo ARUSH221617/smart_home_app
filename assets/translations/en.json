@@ -33,7 +33,7 @@
   "didNotReceiveOtp": "Didn't receive the OTP?",
   "tryAgainAfter": "You can send another login link after {} seconds.",
   "resendOtp": "Resend OTP",
-  "menuHero": "Dash",
+  "menuHero": "Dashboard",
   "menuSetting": "Setting",
   "goodMorning": "Good Morning",
   "goodAfternoon": "Good Afternoon",
